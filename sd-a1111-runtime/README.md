@@ -9,7 +9,15 @@ This template includes downloaded:
   - [vae-ft-mse-840000-ema-pruned](https://civitai.com/models/76118/vae-ft-mse-840000-ema-pruned)
 - Upscaler:
   - [4x-Ultrasharp](https://civitai.com/models/116225)
-- Controlnet v1.1: [All models](https://huggingface.co/lllyasviel/ControlNet-v1-1/tree/main)
+- Controlnet v1.1:
+  - [control_v11f1e_sd15_tile](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11f1e_sd15_tile.pth)
+  - [control_v11f1p_sd15_depth](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11f1p_sd15_depth.pth)
+  - [control_v11p_sd15_canny](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_canny.pth)
+  - [control_v11p_sd15_inpaint](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_inpaint.pth)
+  - [control_v11p_sd15_lineart](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_lineart.pth)
+  - [control_v11p_sd15_openpose](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_openpose.pth)
+  - [control_v11p_sd15_softedge](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_softedge.pth)
+  - [control_v11p_sd15s2_lineart_anime](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15s2_lineart_anime.pth)
 - Embeddings:
   - [BadDream + UnrealisticDream v1.0](https://civitai.com/models/72437)
   - [badhandv4](https://civitai.com/models/16993?modelVersionId=20068)
