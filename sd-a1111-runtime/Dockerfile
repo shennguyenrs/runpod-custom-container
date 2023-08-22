@@ -42,6 +42,9 @@ RUN ln -s /usr/bin/python3.10 /usr/bin/python && \
 RUN pip3 install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
   pip3 install --no-cache-dir xformers==0.0.20
 
+# Package for Adetailer
+RUN pip3 install -U --no-cache-dir ultralytics mediapipe rich protobuf
+
 # Install Jupyter
 RUN pip3 install -U --no-cache-dir jupyterlab \
   jupyterlab_widgets \
