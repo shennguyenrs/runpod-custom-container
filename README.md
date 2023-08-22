@@ -1,0 +1,30 @@
+## 🚀 RunPod Docker Images for Stable Diffusion
+
+This template includes downloaded:
+
+- Models:
+  - [Dreamshaper_v8](https://civitai.com/models/4384/dreamshaper)
+- VAE:
+  - [kl-f8-anime2](https://civitai.com/models/23906?modelVersionId=28569)
+  - [vae-ft-mse-840000-ema-pruned](https://civitai.com/models/76118/vae-ft-mse-840000-ema-pruned)
+- Upscaler:
+  - [4x-Ultrasharp](https://civitai.com/models/116225)
+- Controlnet v1.1: [All models](https://huggingface.co/lllyasviel/ControlNet-v1-1/tree/main)
+- Embeddings:
+  - [BadDream + UnrealisticDream v1.0](https://civitai.com/models/72437)
+  - [badhandv4](https://civitai.com/models/16993?modelVersionId=20068)
+  - [EasyNegative](https://civitai.com/models/7808?modelVersionId=9208)
+  - [veryBadImageNegative_v1.3](https://civitai.com/models/11772?modelVersionId=25820)
+- Lora:
+  - [Detail Tweaker LoRA](https://civitai.com/models/58390?modelVersionId=62833)
+  - [Add More Details - Detail Enhancer / Tweaker (细节调整) LoRA](https://civitai.com/models/82098?modelVersionId=87153)
+  - [Weight Slider - LoRA](https://civitai.com/models/112552?modelVersionId=126824)
+  - [LowRa](https://civitai.com/models/48139?modelVersionId=63006)
+- Extensions:
+  - [sd-webui-controlnet](https://github.com/Mikubill/sd-webui-controlnet.git)
+  - [adetailer](https://github.com/Bing-su/adetailer.git)
+  - [a1111-sd-webui-tagcomplete](https://github.com/DominikDoom/a1111-sd-webui-tagcomplete.git)
+  - [ultimate-upscale-for-automatic1111](https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git)
+  - [sd-webui-regional-prompter](https://github.com/hako-mikan/sd-webui-regional-prompter.git)
+  - [stable-diffusion-webui-images-browser](https://github.com/AlUlkesh/stable-diffusion-webui-images-browser.git)
+  - [a1111-sd-webui-lycoris](https://github.com/KohakuBlueleaf/a1111-sd-webui-lycoris.git)

@@ -1,4 +1,35 @@
-## 🚀 RunPod Automatic1111 Stable Diffusion Template
+## 🚀 RunPod Automatic1111 Runtime Image
+
+This template includes downloaded:
+
+- Models:
+  - [Dreamshaper_v8](https://civitai.com/models/4384/dreamshaper)
+- VAE:
+  - [kl-f8-anime2](https://civitai.com/models/23906?modelVersionId=28569)
+  - [vae-ft-mse-840000-ema-pruned](https://civitai.com/models/76118/vae-ft-mse-840000-ema-pruned)
+- Upscaler:
+  - [4x-Ultrasharp](https://civitai.com/models/116225)
+- Controlnet v1.1: [All models](https://huggingface.co/lllyasviel/ControlNet-v1-1/tree/main)
+- Embeddings:
+  - [BadDream + UnrealisticDream v1.0](https://civitai.com/models/72437)
+  - [badhandv4](https://civitai.com/models/16993?modelVersionId=20068)
+  - [EasyNegative](https://civitai.com/models/7808?modelVersionId=9208)
+  - [veryBadImageNegative_v1.3](https://civitai.com/models/11772?modelVersionId=25820)
+- Lora:
+  - [Detail Tweaker LoRA](https://civitai.com/models/58390?modelVersionId=62833)
+  - [Add More Details - Detail Enhancer / Tweaker (细节调整) LoRA](https://civitai.com/models/82098?modelVersionId=87153)
+  - [Weight Slider - LoRA](https://civitai.com/models/112552?modelVersionId=126824)
+  - [LowRa](https://civitai.com/models/48139?modelVersionId=63006)
+- Extensions:
+  - [sd-webui-controlnet](https://github.com/Mikubill/sd-webui-controlnet.git)
+  - [adetailer](https://github.com/Bing-su/adetailer.git)
+  - [a1111-sd-webui-tagcomplete](https://github.com/DominikDoom/a1111-sd-webui-tagcomplete.git)
+  - [ultimate-upscale-for-automatic1111](https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git)
+  - [sd-webui-regional-prompter](https://github.com/hako-mikan/sd-webui-regional-prompter.git)
+  - [stable-diffusion-webui-images-browser](https://github.com/AlUlkesh/stable-diffusion-webui-images-browser.git)
+  - [a1111-sd-webui-lycoris](https://github.com/KohakuBlueleaf/a1111-sd-webui-lycoris.git)
+
+Maintain by [shennguyenrs](https://github.com/shennguyenrs)
 
 ### 📝 General
 
@@ -22,8 +53,8 @@ The best ways to introduce your models to your pod is by using [runpodctl](https
 
 If you're finished with the pod and want to transfer things to Google Drive, [this colab](https://colab.research.google.com/drive/1ot8pODgystx1D6_zvsALDSvjACBF1cj6) can assist you using `runpodctl`. You can run `runpodctl` in a web terminal (found in the pod connect menu), or in a terminal on the desktop.
 
-## 🔌 Template Ports
+### 🔌 Template Ports
 
 - **3001** | HTTP - This is the WebUI port that gets proxied to the internal 3000 port.
 - **8888** | HTTP - This is the JupyterLab port that gets proxied to the internal 8888 port.
-- **22** | TCP  - This is the SSH port that gets proxied to the internal 22 port.
+- **22** | TCP - This is the SSH port that gets proxied to the internal 22 port.
