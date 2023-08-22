@@ -92,4 +92,4 @@ COPY pre_start.sh ./
 RUN chmod +x /start.sh && chmod +x /pre_start.sh
 
 SHELL ["/bin/bash", "--login", "-c"]
-# CMD ["/start.sh"]
+CMD ["/start.sh"]
