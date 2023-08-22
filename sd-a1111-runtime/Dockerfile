@@ -1,4 +1,4 @@
-FROM shennguyenrs/sd-models:1.0.0 AS downloaded
+FROM shennguyenrs/sd-models:latest AS downloaded
 FROM nvidia/cuda:11.8.0-devel-ubuntu22.04 AS runtime
 
 ARG WEBUI_VERSION=v1.5.1
