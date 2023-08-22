@@ -6,7 +6,8 @@ rsync --remove-source-files -rlptDu --ignore-existing /stable-diffusion-webui/ /
 
 ln -s /sd-models/* /workspace/stable-diffusion-webui/models/Stable-diffusion/
 ln -s /sd-vae/* /workspace/stable-diffusion-webui/models/VAE/
-ln -s /cn-models/* /workspace/stable-diffusion-webui/extensions/sd-webui-controlnet/models/ControlNet
+ln -s /sd-upscaler/* //workspace/stable-diffusion-webui/models/ESRGAN/
+ln -s /cn-models/* /workspace/stable-diffusion-webui/extensions/sd-webui-controlnet/models/ControlNet/
 ln -s /sd-extensions/* /workspace/stable-diffusion-webui/extensions/
 ln -s /sd-lora/* /workspace/stable-diffusion-webui/models/Lora/
 ln -s /sd-embeddings/* /workspace/stable-diffusion-webui/embeddings/

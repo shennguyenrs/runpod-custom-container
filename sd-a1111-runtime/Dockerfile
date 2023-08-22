@@ -1,3 +1,4 @@
+FROM shennguyenrs/sd-models:1.0.0 AS downloaded
 FROM nvidia/cuda:11.8.0-devel-ubuntu22.04 AS runtime
 
 ARG WEBUI_VERSION=v1.5.1
@@ -53,78 +54,42 @@ RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && \
   cd stable-diffusion-webui && \
   git checkout tags/${WEBUI_VERSION}
 
-# Cache models and extension
-RUN mkdir -p /sd-models /cn-models /sd-extensions /sd-embeddings /sd-vae /sd-lora
-
-# Download Models
-RUN wget https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned.safetensors /sd-models/v1-5-pruned.safetensors -O /sd-models/v1-5-pruned.safetensors
+# Copy and cache model
+COPY --from=downloaded /sd-models ./sd-models
 
 WORKDIR /stable-diffusion-webui
-COPY cache-sd-models.py install-automatic.py ./
+
+COPY cache-sd-model.py install-automatic.py ./
 RUN python -m venv --system-site-packages /venv && \
   source /venv/bin/activate && \
   python -m install-automatic --skip-torch-cuda-test && \
   deactivate
 
-# Cache the SD 1.5 model
 RUN source /venv/bin/activate && \
-  python cache-sd-model.py --use-cpu=all --ckpt /sd-models/v1-5-pruned.safetensors && \
+  python cache-sd-model.py --use-cpu=all --ckpt /sd-models/DreamShaper_8_pruned.safetensors && \
   deactivate
 
 COPY relauncher.py webui-user.sh ./
 
 WORKDIR /
 
-# Copy NGINX & README 
-COPY /proxy/nginx.conf /etc/nginx/nginx.conf
-COPY /proxy/readme.html /usr/share/nginx/html/readme.html
+# Copy NGINX & README
+COPY --from=proxy nginx.conf /etc/nginx/nginx.conf
+COPY --from=proxy readme.html /usr/share/nginx/html/readme.html
 COPY README.md /usr/share/nginx/html/README.md
 
-# Download Vae
-RUN wget https://huggingface.co/hakurei/waifu-diffusion-v1-4/blob/main/vae/kl-f8-anime2.ckpt -O /sd-vae/kl-f8-anime2.ckpt && \
-  wget https://huggingface.co/stabilityai/sd-vae-ft-mse-original/blob/main/vae-ft-mse-840000-ema-pruned.safetensors
-
-# Download Controlnet models
-RUN wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11e_sd15_ip2p.pth -O /cn-models/control_v11e_sd15_ip2p.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11e_sd15_shuffle.pth -O /cn-models/control_v11e_sd15_shuffle.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11f1e_sd15_tile.pth -O /cn-models/control_v11f1e_sd15_tile.pth && \ 
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11f1p_sd15_depth.pth -O /cn-models/control_v11f1p_sd15_depth.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_canny.pth -O /cn-models/control_v11p_sd15_canny.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_inpaint.pth -O /cn-models/control_v11p_sd15_inpaint.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_lineart.pth -O /cn-models/control_v11p_sd15_lineart.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_mlsd.pth -O /cn-models/control_v11p_sd15_mlsd.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_normalbae.pth -O /cn-models/control_v11p_sd15_normalbae.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_openpose.pth -O /cn-models/control_v11p_sd15_openpose.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_scribble.pth -O /cn-models/control_v11p_sd15_scribble.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_seg.pth -O /cn-models/control_v11p_sd15_seg.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_softedge.pth -O /cn-models/control_v11p_sd15_softedge.pth && \
-  wget https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15s2_lineart_anime.pth -O /cn-models/control_v11p_sd15s2_lineart_anime.pth
-
-# Download Extensions
-RUN git clone https://github.com/Mikubill/sd-webui-controlnet.git /sd-extensions/sd-webui-controlnet && \
-  git clone https://github.com/Bing-su/adetailer.git /sd-extensions/adetailer && \
-  git clone https://github.com/DominikDoom/a1111-sd-webui-tagcomplete.git /sd-extensions/a1111-sd-webui-tagcomplete && \
-  git clone https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git /sd-extensions/ultimate-upscale-for-automatic1111 && \
-  git clone https://github.com/hako-mikan/sd-webui-regional-prompter.git /sd-extensions/sd-webui-regional-prompter && \
-  git clone https://github.com/AlUlkesh/stable-diffusion-webui-images-browser/ /sd-extensions/stable-diffusion-webui-images-browser && \
-  git clone https://github.com/KohakuBlueleaf/a1111-sd-webui-lycoris.git /sd-extensions/a1111-sd-webui-lycoris && \
-  git clone git clone https://github.com/adieyal/sd-dynamic-prompting/ /sd-extensions/sd-dynamic-prompting
-
-# Download Lora
-RUN wget https://civitai.com/api/download/models/62833 -O /sd-lora/add_detail.safetensors && \
-  wget https://civitai.com/api/download/models/87153 -O /sd-lora/more_details.safetensors && \
-  wget https://civitai.com/api/download/models/126824 -O /sd-lora/weight_slider_v2.safetensors && \
-  wget https://civitai.com/api/download/models/63006 -O /sd-lora/LowRA.safetensors
-
-# Download Embeddings
-RUN wget https://civitai.com/api/download/models/77169 -O /sd-embeddings/BadDream.pt && \
-  wget https://civitai.com/api/download/models/77173 -O /sd-embeddings/UnrealisticDream.pt && \
-  wget https://civitai.com/api/download/models/20068 -O /sd-embeddings/badhandv4.pt && \
-  wget https://civitai.com/api/download/models/9536 -O /sd-embeddings/EasyNegative.pt
+# Copy extensions
+COPY --from=downloaded /sd-vae ./sd-vae
+COPY --from=downloaded /sd-upscaler ./sd-upscaler
+COPY --from=downloaded /cn-models ./cn-models
+COPY --from=downloaded /sd-embeddings ./sd-embeddings
+COPY --from=downloaded /sd-lora ./sd-lora
+COPY --from=downloaded /sd-extensions ./sd-extensions
 
 # Start scripts
-COPY pre_start.sh start.sh ./
+COPY --from=scripts start.sh ./
+COPY pre_start.sh ./
 RUN chmod +x /start.sh && chmod +x /pre_start.sh
 
 SHELL ["/bin/bash", "--login", "-c"]
-CMD ["/start.sh"]
+# CMD ["/start.sh"]
