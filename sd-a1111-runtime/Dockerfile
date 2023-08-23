@@ -89,6 +89,11 @@ COPY --from=downloaded /sd-embeddings ./sd-embeddings
 COPY --from=downloaded /sd-lora ./sd-lora
 COPY --from=downloaded /sd-extensions ./sd-extensions
 
+# Configuration for Latent Couple
+WORKDIR /stable-diffusion-webuiW
+RUN git apply --ignore-whitespace extensions/stable-diffusion-webui-two-shot/0001-Adding-after_ui_callback-for-scripts.patch
+WORKDIR /
+
 # Start scripts
 COPY --from=scripts start.sh ./
 COPY pre_start.sh ./
