@@ -1,7 +1,7 @@
 FROM shennguyenrs/sd-models:latest AS downloaded
 FROM nvidia/cuda:11.8.0-devel-ubuntu22.04 AS runtime
 
-ARG WEBUI_VERSION=v1.5.1
+ARG WEBUI_VERSION=v1.6.0-RC
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -72,7 +72,7 @@ RUN source /venv/bin/activate && \
   python cache-sd-model.py --use-cpu=all --ckpt /sd-models/dreamshaper_v8.safetensors && \
   deactivate
 
-COPY relauncher.py webui-user.sh ui-config.json ./
+COPY relauncher.py webui-user.sh ./
 
 WORKDIR /
 
