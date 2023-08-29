@@ -10,14 +10,14 @@ This template includes downloaded:
 - Upscaler:
   - [4x-Ultrasharp](https://civitai.com/models/116225)
 - Controlnet v1.1:
-    - [control_v11f1e_sd15_tile](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11f1e_sd15_tile.pth)
-    - [control_v11f1p_sd15_depth](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11f1p_sd15_depth.pth)
-    - [control_v11p_sd15_canny](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_canny.pth)
-    - [control_v11p_sd15_inpaint](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_inpaint.pth)
-    - [control_v11p_sd15_lineart](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_lineart.pth)
-    - [control_v11p_sd15_openpose](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_openpose.pth)
-    - [control_v11p_sd15_softedge](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_softedge.pth)
-    - [control_v11p_sd15s2_lineart_anime](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15s2_lineart_anime.pth)
+  - [control_v11f1e_sd15_tile](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11f1e_sd15_tile.pth)
+  - [control_v11f1p_sd15_depth](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11f1p_sd15_depth.pth)
+  - [control_v11p_sd15_canny](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_canny.pth)
+  - [control_v11p_sd15_inpaint](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_inpaint.pth)
+  - [control_v11p_sd15_lineart](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_lineart.pth)
+  - [control_v11p_sd15_openpose](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_openpose.pth)
+  - [control_v11p_sd15_softedge](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15_softedge.pth)
+  - [control_v11p_sd15s2_lineart_anime](https://huggingface.co/lllyasviel/ControlNet-v1-1/blob/main/control_v11p_sd15s2_lineart_anime.pth)
 - Embeddings:
   - [BadDream + UnrealisticDream v1.0](https://civitai.com/models/72437)
   - [badhandv4](https://civitai.com/models/16993?modelVersionId=20068)
@@ -31,8 +31,8 @@ This template includes downloaded:
 - Extensions:
   - [sd-webui-controlnet](https://github.com/Mikubill/sd-webui-controlnet.git)
   - [adetailer](https://github.com/Bing-su/adetailer.git)
-  - [a1111-sd-webui-tagcomplete](https://github.com/DominikDoom/a1111-sd-webui-tagcomplete.git)
   - [ultimate-upscale-for-automatic1111](https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git)
-  - [sd-webui-regional-prompter](https://github.com/hako-mikan/sd-webui-regional-prompter.git)
   - [stable-diffusion-webui-images-browser](https://github.com/AlUlkesh/stable-diffusion-webui-images-browser.git)
   - [a1111-sd-webui-lycoris](https://github.com/KohakuBlueleaf/a1111-sd-webui-lycoris.git)
+  - [sd-webui-openpose-editor](https://github.com/huchenlei/sd-webui-openpose-editor.git)
+  - [multidiffusion-upscaler-for-automatic1111](https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111.git)

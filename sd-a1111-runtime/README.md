@@ -31,11 +31,11 @@ This template includes downloaded:
 - Extensions:
   - [sd-webui-controlnet](https://github.com/Mikubill/sd-webui-controlnet.git)
   - [adetailer](https://github.com/Bing-su/adetailer.git)
-  - [a1111-sd-webui-tagcomplete](https://github.com/DominikDoom/a1111-sd-webui-tagcomplete.git)
   - [ultimate-upscale-for-automatic1111](https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git)
-  - [sd-webui-regional-prompter](https://github.com/hako-mikan/sd-webui-regional-prompter.git)
   - [stable-diffusion-webui-images-browser](https://github.com/AlUlkesh/stable-diffusion-webui-images-browser.git)
   - [a1111-sd-webui-lycoris](https://github.com/KohakuBlueleaf/a1111-sd-webui-lycoris.git)
+  - [sd-webui-openpose-editor](https://github.com/huchenlei/sd-webui-openpose-editor.git)
+  - [multidiffusion-upscaler-for-automatic1111](https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111.git)
 
 Maintain by [shennguyenrs](https://github.com/shennguyenrs)
 
