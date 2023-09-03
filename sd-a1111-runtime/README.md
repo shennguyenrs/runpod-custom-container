@@ -2,6 +2,8 @@
 
 This template includes downloaded:
 
+- Stable Diffusion WebUI: [v1.6.0](https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases/tag/v1.6.0)
+- ControlNet: commit 42bb1b1 on Sep 3, 2023
 - Models:
   - [Dreamshaper_v8](https://civitai.com/models/4384/dreamshaper)
 - VAE:
@@ -56,6 +58,10 @@ You might be used to altering a different file for your launch parameters. In ou
 ### 📥 Using Your Own Models
 
 The best ways to introduce your models to your pod is by using [runpodctl](https://github.com/runpod/runpodctl/blob/main/README.md) or by uploading them to Google Drive or another cloud storage provider and downloading them to your pod from there.
+
+### 🔗 Re-links all pre-builts models
+
+In case, all or some the pre-built models are not in the correct locations in the workspace, you can open terminal at root directory `/` and run command `sh create-links.sh`.
 
 ### 🚚 Uploading to Google Drive
 
