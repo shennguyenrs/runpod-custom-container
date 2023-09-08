@@ -1,7 +1,7 @@
 FROM shennguyenrs/sd-models:latest AS downloaded
 FROM nvidia/cuda:11.8.0-devel-ubuntu22.04 AS runtime
 
-ARG WEBUI_VERSION=v1.6.0-RC
+ARG WEBUI_VERSION=v1.6.0
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -62,7 +62,7 @@ COPY --from=downloaded /sd-models ./sd-models
 
 WORKDIR /stable-diffusion-webui
 
-COPY cache-sd-model.py install-automatic.py ./
+COPY install-automatic.py ./
 RUN python -m venv --system-site-packages /venv && \
   source /venv/bin/activate && \
   python -m install-automatic --skip-torch-cuda-test && \
@@ -91,8 +91,8 @@ COPY --from=downloaded /sd-extensions ./sd-extensions
 
 # Start scripts
 COPY --from=scripts start.sh ./
-COPY pre_start.sh ./
-RUN chmod +x /start.sh && chmod +x /pre_start.sh
+COPY pre_start.sh create_links.sh ./
+RUN chmod +x /start.sh && chmod +x /pre_start.sh && chmod +x /create_links.sh
 
 SHELL ["/bin/bash", "--login", "-c"]
 CMD ["/start.sh"]
