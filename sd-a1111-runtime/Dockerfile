@@ -62,15 +62,15 @@ COPY --from=downloaded /sd-models ./sd-models
 
 WORKDIR /stable-diffusion-webui
 
-COPY install-automatic.py ./
+COPY install-automatic.py cache-sd-model.py ./
 RUN python -m venv --system-site-packages /venv && \
   source /venv/bin/activate && \
   python -m install-automatic --skip-torch-cuda-test && \
   deactivate
 
-# RUN source /venv/bin/activate && \
-#   python cache-sd-model.py --use-cpu=all --ckpt /sd-models/dreamshaper_v8.safetensors && \
-#   deactivate
+RUN source /venv/bin/activate && \
+  python cache-sd-model.py --use-cpu=all --ckpt /sd-models/dreamshaper_v8.safetensors && \
+  deactivate
 
 COPY relauncher.py webui-user.sh ./
 
