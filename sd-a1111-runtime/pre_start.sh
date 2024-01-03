@@ -4,6 +4,9 @@ rsync --remove-source-files -rlptDu --ignore-existing /venv/ /workspace/venv/
 echo "**** syncing stable diffusion to workspace, please wait ****"
 rsync --remove-source-files -rlptDu --ignore-existing /stable-diffusion-webui/ /workspace/stable-diffusion-webui/
 
+echo "**** link models to directories ****"
+sh create_links.sh
+
 if [[ $RUNPOD_STOP_AUTO ]]
 then
     echo "Skipping auto-start of webui"

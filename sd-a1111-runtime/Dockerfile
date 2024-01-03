@@ -1,7 +1,7 @@
 FROM shennguyenrs/sd-models:latest AS downloaded
 FROM nvidia/cuda:11.8.0-devel-ubuntu22.04 AS runtime
 
-ARG WEBUI_VERSION=v1.6.0
+ARG WEBUI_VERSION=v1.7.0
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -39,8 +39,8 @@ RUN ln -s /usr/bin/python3.10 /usr/bin/python && \
   ln -s /usr/bin/python3.10 /usr/bin/python3
 
 # Install Torch and xformers
-RUN pip3 install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
-  pip3 install --no-cache-dir xformers==0.0.20
+RUN pip3 install --no-cache-dir torch==2.0.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
+  pip3 install --no-cache-dir xformers==0.0.22
 
 # Package for Adetailer
 RUN pip3 install -U --no-cache-dir ultralytics mediapipe rich protobuf

@@ -2,8 +2,8 @@
 
 This template includes downloaded:
 
-- Stable Diffusion WebUI: [v1.6.0](https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases/tag/v1.6.0)
-- ControlNet: commit 2b12b27 on Sep 7, 2023
+- Stable Diffusion WebUI: [v1.7.0](https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases/tag/v1.7.0)
+- ControlNet: commit 8bd8057 on Jan 3, 2024
 - Models:
   - [Dreamshaper_v8](https://civitai.com/models/4384/dreamshaper)
   - [epiCRealism](https://civitai.com/models/25694/epicrealism)
